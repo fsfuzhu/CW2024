@@ -54,16 +54,12 @@
       <version>19.0.2</version>
       <scope>test</scope>
     </dependency>
-
-    <!-- 添加 JavaFX Swing 依赖 -->
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-swing</artifactId>
       <version>19.0.2</version>
       <scope>test</scope>
     </dependency>
-
-    <!-- JUnit Dependencies -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
