@@ -45,7 +45,7 @@ public class UserPlane extends Actor {
     private static final double PROJECTILE_Y_OFFSET = 45;
 
     /** Default firing rate of the plane. */
-    private static final double FIRE_RATE = 500.0;
+    private static final double FIRE_RATE = 5.0;
 
     /** Threshold of power-ups required for level-up. */
     private static final int POWER_UP_THRESHOLD = 3;
@@ -71,8 +71,6 @@ public class UserPlane extends Actor {
     /** Counter for collected power-ups. */
     private int powerUpCount = 0;
 
-    /** Number of extra rows of bullets added via upgrades. */
-    private int extraBulletRows = 0;
 
     /** Component responsible for handling the shooting mechanics. */
     private final ShootingComponent shootingComponent;
@@ -93,8 +91,6 @@ public class UserPlane extends Actor {
         getMovementComponent().setVelocity(0, 0);
         shootingComponent = new ShootingComponent(this, FIRE_RATE, null, PROJECTILE_X_OFFSET, PROJECTILE_Y_OFFSET);
         shootingComponent.startFiring();
-
-        shootingComponent.setBulletRows(10);
     }
 
     /**
@@ -118,7 +114,6 @@ public class UserPlane extends Actor {
      */
     public void addExtraBulletRow() {
         shootingComponent.addBulletRow();
-        extraBulletRows++;
     }
 
     /**
