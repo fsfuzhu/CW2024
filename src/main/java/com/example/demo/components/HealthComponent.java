@@ -1,8 +1,10 @@
 package com.example.demo.components;
 
 import com.example.demo.actors.Actor.Actor;
+
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.function.IntConsumer;
 
 /**
  * Represents a component for managing the health of an {@link Actor}.
@@ -28,7 +30,7 @@ public class HealthComponent {
     /**
      * The list of health observers.
      */
-    private final List<HealthObserver> observers = new CopyOnWriteArrayList<>();
+    private final List<IntConsumer> observers = new CopyOnWriteArrayList<>();
 
     /**
      * Constructs a {@code HealthComponent} with the specified owner and maximum health.
@@ -121,20 +123,8 @@ public class HealthComponent {
      * Notifies all observers of the current health value.
      */
     private void notifyObservers() {
-        for (HealthObserver observer : observers) {
-            observer.onHealthUpdated(currentHealth);
+        for (IntConsumer observer : observers) {
+            observer.accept(currentHealth);
         }
-    }
-
-    /**
-     * Interface for observing health changes.
-     */
-    public interface HealthObserver {
-        /**
-         * Called when the health value is updated.
-         *
-         * @param newHealth The updated health value.
-         */
-        void onHealthUpdated(int newHealth);
     }
 }

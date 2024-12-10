@@ -1,4 +1,4 @@
-# COMP2042 Junru Wang Coursework
+# COMP2042 Coursework - Wang Junru
 
 ## GitHub Repository
 
